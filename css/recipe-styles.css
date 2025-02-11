@@ -1,0 +1,135 @@
+:root {
+    --color-primary: #2c3e50;    /* Azul Midgard */
+    --color-secondary: #d7ccc8;  /* Gris piedra rúnica */
+    --color-accent: #ff9800;     /* Naranja fuego de Muspelheim */
+    --color-text: #263238;       /* Gris oscuro */
+    --color-light: #f5f5f5;      /* Blanco nieve de Niflheim */
+    --color-dark:#222;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%),
+                      linear-gradient(-45deg, #f5f5f5 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #f5f5f5 75%),
+                      linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
+    background-size: 20px 20px;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+/* Estilos del encabezado */
+header {
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.back-button {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-light);
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s ease;
+}
+
+.back-button:hover {
+    color: var(--color-accent);
+}
+
+/* Estilos de la imagen */
+.recipe-image {
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.recipe-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Estilos de las secciones */
+.recipe-content section {
+    background: white;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 8px;
+    border: 2px solid var(--color-secondary);
+}
+
+h2 {
+    color: var(--color-primary);
+    border-bottom: 2px solid var(--color-accent);
+    padding-bottom: 0.5rem;
+    margin-top: 0;
+}
+
+/* Estilos de las listas */
+ul, ol {
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+    position: relative;
+    padding-left: 0.5rem;
+}
+
+ul li::marker {
+    color: var(--color-accent);
+}
+
+ol li::marker {
+    color: var(--color-primary);
+    font-weight: bold;
+}
+
+/* Estilos del pie de página */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.recipe-content > * {
+    animation: fadeIn 0.8s ease-out forwards;
+}

@@ -1,0 +1,150 @@
+/* Variables de colores nórdicos */
+:root {
+    --color-primary: #2c3e50;    /* Azul Midgard */
+    --color-secondary: #d7ccc8;  /* Gris piedra rúnica */
+    --color-accent: #ff9800;     /* Naranja fuego de Muspelheim */
+    --color-text: #263238;       /* Gris oscuro */
+    --color-light: #f5f5f5;      /* Blanco nieve de Niflheim */
+}
+
+/* Estilos generales con patrón nórdico sutil */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--color-light);
+    color: var(--color-text);
+    line-height: 1.6;
+    background-image: linear-gradient(45deg, #f5f5f5 25%, transparent 25%),
+                      linear-gradient(-45deg, #f5f5f5 25%, transparent 25%),
+                      linear-gradient(45deg, transparent 75%, #f5f5f5 75%),
+                      linear-gradient(-45deg, transparent 75%, #f5f5f5 75%);
+    background-size: 20px 20px;
+}
+
+/* Contenedor principal con efecto de profundidad */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-radius: 12px;
+}
+
+/* Encabezado estilizado */
+header {
+    background: var(--color-primary);
+    color: var(--color-light);
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--color-accent);
+    box-shadow: 0 0 20px var(--color-accent);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 3em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    margin: 1rem 0 0;
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* Lista de recetas con efecto hover elaborado */
+.recipe-list {
+    list-style: none;
+    padding: 2rem 0;
+    display: grid;
+    gap: 1rem;
+}
+
+.recipe-list li {
+    margin: 0;
+    transition: transform 0.3s ease;
+}
+
+.recipe-list a {
+    display: block;
+    text-decoration: none;
+    color: var(--color-text);
+    font-size: 1.2em;
+    padding: 1rem 1.5rem;
+    background: white;
+    border-radius: 8px;
+    border: 2px solid var(--color-secondary);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.recipe-list a::before {
+    content: '⚔️';  /* Símbolo de espadas cruzadas */
+    margin-right: 10px;
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+}
+
+.recipe-list a:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateX(10px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.recipe-list a:hover::before {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Pie de página con diseño rúnico */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--color-primary);
+    color: var(--color-light);
+    border-radius: 8px;
+    margin-top: 2rem;
+    position: relative;
+}
+
+footer::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%,
+        var(--color-accent) 50%,
+        transparent 100%
+    );
+}
+
+/* Animación suave al cargar la página */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.container > * {
+    animation: fadeIn 0.8s ease-out forwards;
+}
